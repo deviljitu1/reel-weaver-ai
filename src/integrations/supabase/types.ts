@@ -272,6 +272,104 @@ export type Database = {
         }
         Relationships: []
       }
+      projects: {
+        Row: {
+          article_content: string | null
+          article_url: string | null
+          created_at: string
+          duration: number | null
+          id: string
+          status: string
+          title: string
+          updated_at: string
+          user_id: string | null
+          video_url: string | null
+          voice_type: string | null
+          voice_url: string | null
+        }
+        Insert: {
+          article_content?: string | null
+          article_url?: string | null
+          created_at?: string
+          duration?: number | null
+          id?: string
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string | null
+          video_url?: string | null
+          voice_type?: string | null
+          voice_url?: string | null
+        }
+        Update: {
+          article_content?: string | null
+          article_url?: string | null
+          created_at?: string
+          duration?: number | null
+          id?: string
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string | null
+          video_url?: string | null
+          voice_type?: string | null
+          voice_url?: string | null
+        }
+        Relationships: []
+      }
+      script_segments: {
+        Row: {
+          audio_end: number | null
+          audio_start: number | null
+          clip_duration: number | null
+          clip_thumbnail: string | null
+          clip_url: string | null
+          created_at: string
+          id: string
+          keywords: string | null
+          line_number: number
+          project_id: string
+          text: string
+          updated_at: string
+        }
+        Insert: {
+          audio_end?: number | null
+          audio_start?: number | null
+          clip_duration?: number | null
+          clip_thumbnail?: string | null
+          clip_url?: string | null
+          created_at?: string
+          id?: string
+          keywords?: string | null
+          line_number: number
+          project_id: string
+          text: string
+          updated_at?: string
+        }
+        Update: {
+          audio_end?: number | null
+          audio_start?: number | null
+          clip_duration?: number | null
+          clip_thumbnail?: string | null
+          clip_url?: string | null
+          created_at?: string
+          id?: string
+          keywords?: string | null
+          line_number?: number
+          project_id?: string
+          text?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "script_segments_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           assigned_at: string
